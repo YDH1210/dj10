@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block con %}
+
+    <form method="post" enctype="multipart/form-data" name="createForm">
+        {% csrf_token %}
+        <div class="container mt-5 mb-5">
+
+            <h1><b>SIGNUP PAGE</b></h1>
+
+            <label class="form-label mt-5">USERNAME</label>
+            <input type="text" name="uname" class="form-control">
+
+            <label class="form-label mt-3">PASSWORD</label>
+            <input type="password" name="upass" class="form-control">
+
+            <label class="form-label mt-3">USERPIC</label>
+            <input type="file" name="upic" class="form-control">
+
+            <label class="form-label mt-3">COMMENT</label>
+            <textarea class="form-control" name="ucomm">{{ user.comment }}</textarea>
+
+            <div class="text-end mt-4">
+                <button type="button" onclick="check()" class ="btn btn-dark btn-lg">회원가입</button>
+            </div>
+        </div>
+    </form>
+
+
+    <script> 
+        function check(){
+            cf = document.createForm;
+            if(!cf.uname.value){
+                alert("USERNAME 을 입력하세요!");
+            }else if(!cf.upass.value){
+                alert("PASSWORD 를 입력하세요!");
+            }else if(cf.upass.value != cf.pwck.value){
+                alert("PASSWORD 가 일치하지 않습니다..");
+            }else{
+                cf.submit();
+            }
+        }
+    </script>
+
+
+
+{% endblock %}
