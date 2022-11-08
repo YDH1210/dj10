@@ -15,9 +15,9 @@ def index(request):
         tts = gTTS(b, lang=l)
         tts.save(f'media/{f}.mp3')
         context.update({
-            "bf":b,
+            "bf": b,
             "lang" : l,
-            "fname" :f
+            "fname" : f
         })
 
     return render(request, "tts/index.html", context) 

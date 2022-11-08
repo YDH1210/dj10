@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import check_password
@@ -46,9 +45,11 @@ def signup(request):
         up = request.POST.get("upass")
         uc = request.POST.get("ucomm")
         pi = request.FILES.get("upic")
-        User.objects.create_user(username=un, password=up, comment=uc, pic=pi)
-        return redirect("acc:index")
-
+        try:
+            User.objects.create_user(username=un, password=up, comment=uc, pic=pi)
+            return redirect("acc:login")
+        except:
+            pass
     return render(request, "acc/signup.html")
 
 def update(request):

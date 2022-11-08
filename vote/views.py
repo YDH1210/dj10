@@ -1,7 +1,15 @@
 from django.shortcuts import render, redirect
-from .models import Topic, Choice
+from .models import Topic, Choice 
 
 # Create your views here.
+def delete(request, tpk):
+    t = Topic.objects.get(id=tpk)
+    if t.maker == request.user:
+        t.delete()
+    else:
+        pass
+    return redirect("vote:index")
+
 def index(request):
     t = Topic.objects.all()
     context = {

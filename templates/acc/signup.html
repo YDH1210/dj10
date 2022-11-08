@@ -13,6 +13,9 @@
             <label class="form-label mt-3">PASSWORD</label>
             <input type="password" name="upass" class="form-control">
 
+            <label class="form-label mt-3">CHECK PASSWORD</label>
+            <input type="password" name="pwck" class="form-control">
+
             <label class="form-label mt-3">USERPIC</label>
             <input type="file" name="upic" class="form-control">
 
@@ -20,7 +23,7 @@
             <textarea class="form-control" name="ucomm">{{ user.comment }}</textarea>
 
             <div class="text-end mt-4">
-                <button type="button" onclick="check()" class ="btn btn-dark btn-lg">회원가입</button>
+                <button type="button" onclick="check()" class="btn btn-dark btn-lg">회원가입</button>
             </div>
         </div>
     </form>
